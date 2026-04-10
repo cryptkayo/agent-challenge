@@ -1,0 +1,204 @@
+/* CryptoDesk Chat Theme */
+
+.cryptodesk-chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.cryptodesk-chat [class*="Header"],
+.cryptodesk-chat [class*="header"] {
+  display: none !important;
+}
+
+.copilotKitMessagesFooter,
+footer.copilotKitMessagesFooter {
+  display: none !important;
+}
+
+.cryptodesk-chat [class*="MessageActions"],
+.cryptodesk-chat [class*="messageActions"] {
+  display: none !important;
+}
+
+.cryptodesk-chat > div {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Outer messages frame — fixed, no scroll */
+.copilotKitMessages {
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100vh - 160px - 54px - 80px) !important;
+}
+
+/* Inner messages container — this is what scrolls */
+.copilotKitMessagesContainer {
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 20px 24px !important;
+  gap: 16px !important;
+  background: #F8F9FC !important;
+}
+
+/* User bubble */
+.cryptodesk-chat [class*="UserMessage"],
+.cryptodesk-chat [class*="userMessage"] {
+  background: #4F6EF7 !important;
+  color: white !important;
+  border-radius: 16px 16px 4px 16px !important;
+  padding: 11px 16px !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  max-width: 70% !important;
+  margin-left: auto !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(79,110,247,0.2) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* Agent bubble */
+.cryptodesk-chat [class*="AssistantMessage"],
+.cryptodesk-chat [class*="assistantMessage"] {
+  background: white !important;
+  color: #0F1728 !important;
+  border-radius: 4px 16px 16px 16px !important;
+  padding: 13px 16px !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  max-width: 82% !important;
+  border: 1px solid #ECEEF2 !important;
+  box-shadow: 0 1px 4px rgba(15,23,42,0.06) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.cryptodesk-chat [class*="AssistantMessage"] strong,
+.cryptodesk-chat [class*="assistantMessage"] strong {
+  color: #4F6EF7 !important;
+  font-weight: 600 !important;
+}
+
+.cryptodesk-chat [class*="AssistantMessage"] code,
+.cryptodesk-chat [class*="assistantMessage"] code {
+  background: #EEF1FF !important;
+  color: #4F6EF7 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+}
+
+/* Welcome message */
+.cryptodesk-chat [class*="Initial"],
+.cryptodesk-chat [class*="initial"],
+.cryptodesk-chat [class*="EmptyState"],
+.cryptodesk-chat [class*="emptyState"] {
+  background: white !important;
+  border: 1px solid #ECEEF2 !important;
+  border-radius: 14px !important;
+  padding: 18px 20px !important;
+  font-size: 13px !important;
+  color: #5C6880 !important;
+  line-height: 1.8 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  box-shadow: 0 1px 4px rgba(15,23,42,0.06) !important;
+}
+
+/* Input — pinned at bottom, never moves */
+.cryptodesk-chat [class*="Input"],
+.cryptodesk-chat [class*="input-container"],
+.cryptodesk-chat [class*="InputBar"],
+.cryptodesk-chat [class*="inputBar"],
+.cryptodesk-chat [class*="inputArea"],
+.cryptodesk-chat [class*="InputArea"],
+.copilotKitInput {
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  background: white !important;
+  border-top: 1px solid #ECEEF2 !important;
+  padding: 12px 16px !important;
+}
+
+/* Textarea */
+.cryptodesk-chat textarea {
+  border: 1.5px solid #ECEEF2 !important;
+  border-radius: 10px !important;
+  background: #F9FAFB !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 13px !important;
+  color: #0F1728 !important;
+  padding: 10px 14px !important;
+  resize: none !important;
+  transition: all 0.15s ease !important;
+  line-height: 1.5 !important;
+  min-height: 44px !important;
+  max-height: 120px !important;
+}
+
+.cryptodesk-chat textarea:focus {
+  border-color: #C7D0FB !important;
+  background: white !important;
+  box-shadow: 0 0 0 3px rgba(79,110,247,0.08) !important;
+  outline: none !important;
+}
+
+.cryptodesk-chat textarea::placeholder {
+  color: #C4CADA !important;
+  font-style: italic !important;
+}
+
+/* Send button */
+.cryptodesk-chat button[type="submit"],
+.cryptodesk-chat [class*="SendButton"],
+.cryptodesk-chat [class*="send-button"] {
+  background: #4F6EF7 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(79,110,247,0.3) !important;
+  transition: all 0.15s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.cryptodesk-chat button[type="submit"]:hover {
+  background: #3D5CE8 !important;
+  box-shadow: 0 4px 10px rgba(79,110,247,0.3) !important;
+}
+
+/* Scrollbar */
+.cryptodesk-chat ::-webkit-scrollbar { width: 3px; }
+.cryptodesk-chat ::-webkit-scrollbar-track { background: transparent; }
+.cryptodesk-chat ::-webkit-scrollbar-thumb { background: #ECEEF2; border-radius: 4px; }
+
+/* Force copilotKitChat to fill full available space */
+.copilotKitChat {
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+
+.copilotKitChat.h-full {
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+

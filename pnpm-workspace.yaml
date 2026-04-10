@@ -1,0 +1,6 @@
+allowBuilds:
+  '@scarf/scarf': true
+  esbuild: false
+  protobufjs: false
+  sharp: false
+  unrs-resolver: false

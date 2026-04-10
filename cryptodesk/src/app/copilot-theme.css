@@ -1,0 +1,148 @@
+/* ─── CopilotKit Dark Terminal Theme Override ─────────────────────────────── */
+
+.cryptodesk-chat {
+  --copilot-kit-background-color: transparent;
+  --copilot-kit-secondary-color: #0c1220;
+  --copilot-kit-separator-color: #1e2d45;
+  --copilot-kit-scrollbar-color: #1e3a5f;
+  --copilot-kit-primary-color: #00ff88;
+  --copilot-kit-contrast-color: #050810;
+  --copilot-kit-response-button-color: #8899aa;
+  --copilot-kit-response-button-background-color: #0c1220;
+  --copilot-kit-muted-color: #445566;
+}
+
+/* Container */
+.cryptodesk-chat .copilotKitChat {
+  background: transparent !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Messages area */
+.cryptodesk-chat .copilotKitMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: transparent;
+}
+
+/* User message bubble */
+.cryptodesk-chat .copilotKitUserMessage {
+  background: rgba(0, 180, 255, 0.08) !important;
+  border: 1px solid rgba(0, 180, 255, 0.2) !important;
+  border-radius: 2px !important;
+  color: #e8f0fe !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 12px !important;
+  padding: 10px 14px !important;
+  margin-left: auto !important;
+  max-width: 80% !important;
+}
+
+/* Assistant message bubble */
+.cryptodesk-chat .copilotKitAssistantMessage {
+  background: rgba(0, 255, 136, 0.04) !important;
+  border: 1px solid rgba(0, 255, 136, 0.12) !important;
+  border-radius: 2px !important;
+  color: #e8f0fe !important;
+  font-family: 'Syne', sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  padding: 12px 16px !important;
+  max-width: 92% !important;
+  position: relative;
+}
+
+/* Green left border on assistant messages */
+.cryptodesk-chat .copilotKitAssistantMessage::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #00ff88, transparent);
+  border-radius: 2px 0 0 2px;
+}
+
+/* Input area */
+.cryptodesk-chat .copilotKitInput {
+  background: #090d18 !important;
+  border-top: 1px solid #1e2d45 !important;
+  padding: 12px 16px !important;
+}
+
+.cryptodesk-chat .copilotKitInputControls {
+  background: #0c1220 !important;
+  border: 1px solid #1e2d45 !important;
+  border-radius: 2px !important;
+}
+
+.cryptodesk-chat .copilotKitInputControls:focus-within {
+  border-color: #00ff88 !important;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.1) !important;
+}
+
+.cryptodesk-chat textarea {
+  background: transparent !important;
+  color: #e8f0fe !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 12px !important;
+  caret-color: #00ff88 !important;
+}
+
+.cryptodesk-chat textarea::placeholder {
+  color: #445566 !important;
+}
+
+/* Send button */
+.cryptodesk-chat .copilotKitSendButton {
+  background: rgba(0, 255, 136, 0.1) !important;
+  border: 1px solid rgba(0, 255, 136, 0.3) !important;
+  color: #00ff88 !important;
+  border-radius: 2px !important;
+  transition: all 0.15s ease !important;
+}
+
+.cryptodesk-chat .copilotKitSendButton:hover {
+  background: rgba(0, 255, 136, 0.2) !important;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.2) !important;
+}
+
+/* Initial/empty state message */
+.cryptodesk-chat .copilotKitInitialMessage {
+  color: #8899aa !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 12px !important;
+  line-height: 1.8 !important;
+}
+
+/* Code blocks inside messages */
+.cryptodesk-chat code {
+  background: rgba(0, 180, 255, 0.08) !important;
+  border: 1px solid rgba(0, 180, 255, 0.15) !important;
+  border-radius: 2px !important;
+  color: #00b4ff !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  padding: 1px 5px !important;
+}
+
+/* Markdown strong */
+.cryptodesk-chat strong {
+  color: #00ff88 !important;
+  font-weight: 700 !important;
+}
+
+/* Loader / thinking indicator */
+.cryptodesk-chat .copilotKitSpinner {
+  border-color: rgba(0, 255, 136, 0.2) !important;
+  border-top-color: #00ff88 !important;
+}
+
+/* Header hide (we have our own) */
+.cryptodesk-chat .copilotKitHeader {
+  display: none !important;
+}
