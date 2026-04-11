@@ -1,27 +1,24 @@
 ﻿import {
   CopilotRuntime,
   copilotRuntimeNextJSAppRouterEndpoint,
+  OpenAIAdapter,
 } from "@copilotkit/runtime";
-import { mastra } from "../../../mastra";
 import { NextRequest } from "next/server";
-import { MastraClient } from "@mastra/client-js";
-
-const runtime = new CopilotRuntime({
-  agents: {
-    cryptoDeskAgent: {
-      name: "CryptoDesk",
-      description: "Your personal crypto intelligence agent - research narratives, check your watchlist, draft threads, and get daily briefings.",
-    },
-  },
-});
 
 export const POST = async (req: NextRequest) => {
+  const serviceAdapter = new OpenAIAdapter({
+    model: process.env.MODEL_NAME || "qwen3:8b",
+    openai: new (require("openai").default)({
+      baseURL: process.env.OPENAI_API_URL || "https://3yt39qx97wc9hqwwmylrphi4jsxrngjzxnjakkybnxbw.node.k8s.prd.nos.ci/v1",
+      apiKey: process.env.OPENAI_API_KEY || "nosana",
+    }),
+  });
+
+  const runtime = new CopilotRuntime();
+
   const { handleRequest } = copilotRuntimeNextJSAppRouterEndpoint({
     runtime,
-    serviceAdapter: new MastraClient({
-      mastra,
-      agentId: "cryptoDeskAgent",
-    }),
+    serviceAdapter,
     endpoint: "/api/copilotkit",
   });
 
