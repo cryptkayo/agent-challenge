@@ -1,4 +1,4 @@
-import {
+﻿import {
   CopilotRuntime,
   copilotRuntimeNextJSAppRouterEndpoint,
 } from "@copilotkit/runtime";
