@@ -22,3 +22,5 @@ jobs:
           context: .
           push: true
           tags: cryptkayo/agent-challenge:latest
+          build-args: |
+            BUILDKIT_PROGRESS=plain
