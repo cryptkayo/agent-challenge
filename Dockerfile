@@ -29,7 +29,7 @@ RUN useradd --system --uid 1001 cryptodesk
 
 COPY --from=builder --chown=cryptodesk:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=cryptodesk:nodejs /app/.next/static ./.next/static
-
+COPY --from=builder /app/public ./public
 
 USER cryptodesk
 EXPOSE 3000
