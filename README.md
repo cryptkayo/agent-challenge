@@ -1,256 +1,219 @@
-# 🖥️ CryptoDesk — Personal Crypto Intelligence Agent
+# CryptoDesk — Personal Crypto Intelligence Agent
 
-> Your personal AI-powered crypto operations desk. Research narratives, track your watchlist, draft Twitter threads, and get daily briefings — all from a single terminal interface running on Nosana's decentralized GPU network.
-
-![CryptoDesk Banner](./assets/banner.png)
-
-## 🎥 Demo
-
-- 📹 **[Watch Demo Video](#)** *(add link after recording)*
-- 🚀 **[Live on Nosana](#)** *(add deployment URL)*
-- 🐦 **[Project Post on X](#)** *(add tweet link)*
+> A personal AI agent that helps crypto-native users cut through market noise, track their portfolio, and stay on top of what matters — built on Nosana's decentralized GPU network.
 
 ---
 
-## 💡 What It Does
+## What is CryptoDesk?
 
-CryptoDesk is a personal crypto intelligence agent that acts as your always-on research desk. Instead of scrolling through noisy Twitter feeds and Discord servers, you talk to CryptoDesk and it does the work for you.
+CryptoDesk is a personal crypto intelligence agent built for the Nosana Builders Challenge. It combines a clean, purpose-built dashboard with an AI agent that understands crypto — narratives, DeFi, market structure, and more.
 
-### Core Capabilities
-
-| Command | What Happens |
-|---|---|
-| `brief me` | Full morning briefing: top narratives + watchlist check + reminders |
-| `research [topic]` | Deep web research on any crypto narrative with signal/noise separation |
-| `check watchlist` | Cross-reference your tracked assets against current news |
-| `draft thread about [topic]` | Write a Twitter/X thread in your analytical voice |
-| `add [token] to watchlist` | Track a new asset or protocol |
-| `remind me to [task] on [date]` | Save governance votes, token unlocks, important dates |
-
-### Why It's Different
-
-Most crypto tools either dump raw data at you or give you generic market summaries. CryptoDesk is **personal** — it knows your watchlist, your reminders, and your context. Everything it surfaces is filtered through what matters *to you specifically*.
+Think of it as your personal crypto analyst that's always online, always ready, and runs on decentralized infrastructure.
 
 ---
 
-## 🏗️ Architecture
+## Features
 
-```
-cryptodesk/
-├── src/
-│   ├── app/                          # Next.js 15 App Router
-│   │   ├── api/
-│   │   │   ├── copilotkit/route.ts   # CopilotKit runtime endpoint
-│   │   │   └── health/route.ts       # Health check for Nosana
-│   │   ├── globals.css               # Dark terminal theme
-│   │   ├── copilot-theme.css         # CopilotKit overrides
-│   │   └── layout.tsx / page.tsx
-│   ├── components/
-│   │   ├── CryptoDesk.tsx            # Main 3-panel layout
-│   │   ├── Header.tsx                # Live clock + Nosana status
-│   │   └── panels/
-│   │       ├── WatchlistPanel.tsx    # Watchlist + Reminders sidebar
-│   │       └── ActivityPanel.tsx     # Stats + Activity log + Node info
-│   └── mastra/
-│       ├── index.ts                  # Mastra instance
-│       ├── agents/
-│       │   └── cryptodesk-agent/
-│       │       └── index.ts          # Agent definition + personality
-│       └── tools/
-│           └── index.ts              # 8 custom tools
-├── nos_job_def/
-│   └── nosana_mastra.json            # Nosana deployment config
-├── Dockerfile                        # Single-container build
-├── server.js                         # Production server
-└── .env.example
-```
+- **AI Chat Agent** — Ask anything crypto-related and get concise, actionable responses
+- **Personal Watchlist** — Track tokens and protocols, persisted across sessions
+- **Reminders** — Set reminders for governance votes, token unlocks, and key dates
+- **Research Hub** — One-click research on DeFi narratives, Layer 2, Bitcoin dominance, AI tokens, and more
+- **Quick Actions** — Market brief, token analysis, alpha hunting, watchlist check
+- **Persistent Storage** — Watchlist and reminders saved to localStorage, survive page reloads
+- **Nosana Integration** — Deployed on Nosana's decentralized GPU network
 
-### Tech Stack
+---
+
+## Tech Stack
 
 | Layer | Technology |
-|---|---|
-| Framework | [Mastra](https://mastra.ai) — TypeScript agent framework |
-| Frontend | Next.js 15 + React 18 + Tailwind CSS |
-| Chat UI | [CopilotKit](https://copilotkit.ai) |
-| LLM | Qwen3:8b via Nosana decentralized endpoint |
-| Web Search | Serper.dev (with DuckDuckGo fallback) |
-| Storage | File-based JSON (watchlist + reminders persist across sessions) |
-| Deployment | Docker → Nosana GPU Network |
+|-------|-----------|
+| Frontend | Next.js 15, React, Tailwind CSS |
+| AI Agent | Mastra, CopilotKit |
+| LLM | Qwen3 via Nosana decentralized inference |
+| Deployment | Nosana GPU Network (nvidia-3090) |
+| Container | Docker |
 
 ---
 
-## ⚡ Nosana Integration
-
-CryptoDesk is deployed entirely on Nosana's decentralized GPU infrastructure:
-
-- **LLM Inference** — Qwen3:8b served via Nosana's hosted endpoint
-- **Compute** — nvidia-3090 GPU node from Nosana's marketplace
-- **Container** — Single Docker image served from Nosana node
-- **Always-on** — Persistent deployment with `/api/health` monitoring
-
-The entire AI stack — inference, compute, serving — runs on decentralized infrastructure. No AWS, no GCP, no Azure.
-
----
-
-## 🚀 Quick Start (Local Development)
+## Getting Started
 
 ### Prerequisites
-- Node.js 20+
-- pnpm (`npm install -g pnpm`)
-- Ollama (for local LLM) — [install here](https://ollama.com)
 
-### Setup
+- Node.js 18+
+- pnpm
+- Docker (for deployment)
+- Ollama (for local development)
+
+### Local Development
 
 ```bash
-# 1. Clone your fork
-git clone https://github.com/YOUR_USERNAME/agent-challenge
+# Clone the repo
+git clone https://github.com/cryptkayo/agent-challenge
 cd agent-challenge
 
-# 2. Install dependencies
+# Install dependencies
 pnpm install
 
-# 3. Configure environment
+# Copy environment variables
 cp .env.example .env
-# Edit .env — set your OLLAMA_API_URL
 
-# 4. Pull local model (for development)
+# Pull the local model (for development)
 ollama pull qwen3:0.6b
-ollama serve
 
-# 5. Start development servers
-pnpm dev          # Next.js on http://localhost:3000
-pnpm dev:agent    # Mastra playground on http://localhost:4111
+# Start both servers
+pnpm dev        # Frontend on port 3000
+pnpm dev:agent  # Mastra agent on port 4111
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to use CryptoDesk.
-Open [http://localhost:4111](http://localhost:4111) for the Mastra agent playground.
+Open [http://localhost:3000](http://localhost:3000) to see CryptoDesk.
 
-### Optional: Enable Live Web Search
-
-For real-time crypto research, add a free [Serper.dev](https://serper.dev) API key to `.env`:
+### Environment Variables
 
 ```env
-SERPER_API_KEY=your_key_here
-```
+# For local development with Ollama
+OPENAI_API_KEY=ollama
+OLLAMA_API_URL=http://127.0.0.1:11434/v1
+MODEL_NAME_AT_ENDPOINT=qwen3:0.6b
 
-Without it, the agent falls back to DuckDuckGo instant answers — still functional, just less comprehensive.
+# For Nosana deployment
+OPENAI_API_KEY=nosana
+OPENAI_API_URL=https://3yt39qx97wc9hqwwmylrphi4jsxrngjzxnjakkybnxbw.node.k8s.prd.nos.ci/v1
+MODEL_NAME=qwen3:8b
+
+PORT=4111
+NODE_ENV=development
+DATA_DIR=/data/cryptodesk
+COPILOTKIT_RUNTIME_URL=http://localhost:4111/api/copilotkit
+```
 
 ---
 
-## 🐳 Docker Deployment
-
-### Build & Test Locally
+## Docker Deployment
 
 ```bash
-# Build
-docker build -t yourusername/cryptodesk-agent:latest .
+# Build the image
+docker build -t cryptokayo/agent-challenge:latest .
 
 # Test locally
-docker run -p 3000:3000 \
-  -e OLLAMA_API_URL=https://nosana-endpoint.../api \
-  -e MODEL_NAME_AT_ENDPOINT=qwen3:8b \
-  -e SERPER_API_KEY=your_key \
-  yourusername/cryptodesk-agent:latest
+docker run -p 3000:3000 --env-file .env cryptokayo/agent-challenge:latest
 
-# Visit http://localhost:3000
-```
-
-### Push to Docker Hub
-
-```bash
-docker login
-docker push yourusername/cryptodesk-agent:latest
+# Push to Docker Hub
+docker push cryptokayo/agent-challenge:latest
 ```
 
 ---
 
-## 🌐 Deploy to Nosana
+## Nosana Deployment
 
-### Step 1: Update Job Definition
+CryptoDesk runs on Nosana's decentralized GPU network. The job definition is in `nos_job_def/nosana_mastra_job_definition.json`.
 
-Edit `nos_job_def/nosana_mastra.json` — replace the image name:
+### Deploy via Nosana Dashboard
 
-```json
-{
-  "image": "yourusername/cryptodesk-agent:latest"
-}
-```
-
-### Step 2: Deploy via Nosana Dashboard
-
-1. Visit [dashboard.nosana.com/deploy](https://dashboard.nosana.com/deploy)
+1. Visit [dashboard.nosana.com](https://dashboard.nosana.com)
 2. Connect your Solana wallet
-3. Click **Expand** → paste contents of `nos_job_def/nosana_mastra.json`
-4. Select **nvidia-3090** market
-5. Click **Deploy**
+3. Click **Expand** to open the job editor
+4. Paste the contents of `nos_job_def/nosana_mastra_job_definition.json`
+5. Select `nvidia-3090` compute market
+6. Click **Deploy**
 
-### Step 3: Deploy via Nosana CLI
+### Deploy via Nosana CLI
 
 ```bash
 npm install -g @nosana/cli
 
 nosana job post \
-  --file ./nos_job_def/nosana_mastra.json \
+  --file ./nos_job_def/nosana_mastra_job_definition.json \
   --market nvidia-3090 \
-  --timeout 60
-
-# Monitor
-nosana job status <job-id>
-nosana job logs <job-id>
+  --timeout 30 \
+  --api <YOUR_API_KEY>
 ```
 
 ---
 
-## 🛠️ Agent Tools Reference
+## Architecture
 
-CryptoDesk has 8 custom Mastra tools:
-
-| Tool | Description |
-|---|---|
-| `researchNarrativeTool` | Web-searches crypto narratives, returns structured brief with signal/noise separation |
-| `watchlistCheckTool` | Scans user's watchlist against current news, returns sentiment-tagged findings |
-| `draftThreadTool` | Writes Twitter/X threads in configurable tones (analytical/alpha/educational/contrarian) |
-| `dailyBriefTool` | Compiles full morning briefing: narratives + watchlist + reminders + market sentiment |
-| `saveToWatchlistTool` | Adds tokens/protocols to persistent watchlist |
-| `getWatchlistTool` | Retrieves current watchlist |
-| `saveReminderTool` | Saves time-sensitive reminders with due dates |
-| `getReminderstool` | Retrieves all pending reminders |
-
----
-
-## 🔧 Environment Variables
-
-| Variable | Required | Description |
-|---|---|---|
-| `OLLAMA_API_URL` | Yes | Ollama/Nosana LLM endpoint URL |
-| `MODEL_NAME_AT_ENDPOINT` | Yes | Model name (e.g. `qwen3:8b`) |
-| `SERPER_API_KEY` | Recommended | Serper.dev key for web search |
-| `PORT` | No | Server port (default: 3000) |
-| `DATA_DIR` | No | Persistent data directory (default: `/data/cryptodesk`) |
-
----
-
-## 📸 Screenshots
-
-*Add screenshots of your running agent here*
+```
+┌─────────────────────────────────────────────────────┐
+│                    CryptoDesk                       │
+├──────────────┬──────────────────┬───────────────────┤
+│  Left Panel  │   Main Content   │   Right Panel     │
+│  Navigation  │  Home / Chat /   │  Watchlist        │
+│  Quick Acts  │  Research /      │  Reminders        │
+│              │  Watchlist /     │  Infrastructure   │
+│              │  Reminders       │                   │
+└──────────────┴────────┬─────────┴───────────────────┘
+                        │
+              ┌─────────▼──────────┐
+              │   CopilotKit RT    │
+              │   /api/copilotkit  │
+              └─────────┬──────────┘
+                        │
+              ┌─────────▼──────────┐
+              │   Mastra Agent     │
+              │   port 4111        │
+              └─────────┬──────────┘
+                        │
+              ┌─────────▼──────────┐
+              │  Nosana GPU Node   │
+              │  qwen3:8b          │
+              │  nvidia-3090       │
+              └────────────────────┘
+```
 
 ---
 
-## 🏆 Submission Details
+## Project Structure
 
-- **Challenge**: Nosana Builders' Challenge — Agents 102
-- **Agent**: CryptoDesk — Personal Crypto Intelligence Agent
-- **Framework**: Mastra + CopilotKit + Next.js
-- **Deployment**: Nosana GPU Network (nvidia-3090)
-- **Docker Image**: `yourusername/cryptodesk-agent:latest`
-- **GitHub**: `https://github.com/YOUR_USERNAME/agent-challenge`
+```
+agent-challenge/
+├── src/
+│   ├── app/
+│   │   ├── api/copilotkit/     # CopilotKit API route
+│   │   ├── globals.css         # CSS variables and utilities
+│   │   ├── copilot-theme.css   # CopilotKit chat styling
+│   │   └── layout.tsx          # Root layout with providers
+│   ├── components/
+│   │   ├── CryptoDesk.tsx      # Main app component
+│   │   └── panels/
+│   │       ├── LeftSidebar.tsx # Navigation panel
+│   │       └── RightPanel.tsx  # Watchlist & reminders panel
+│   └── mastra/
+│       ├── agents/
+│       │   └── cryptodesk-agent/ # Agent definition
+│       ├── tools/              # Custom agent tools
+│       └── index.ts            # Mastra instance
+├── nos_job_def/                # Nosana deployment config
+├── Dockerfile                  # Container configuration
+└── .env.example                # Environment template
+```
 
 ---
 
-## 📄 License
+## Roadmap
 
-MIT License — see [LICENSE](./LICENSE) for details.
+- [ ] Web search integration for real-time market data
+- [ ] Multi-user support with Supabase authentication
+- [ ] Price alerts and push notifications
+- [ ] Portfolio P&L tracking
+- [ ] Twitter/X thread publishing directly from the agent
+- [ ] Mobile responsive design
 
 ---
 
-*Built with ❤️ for the Nosana Builders' Challenge*
+## Built With
+
+- [Mastra](https://mastra.ai) — AI agent framework
+- [CopilotKit](https://copilotkit.ai) — Frontend AI integration
+- [Next.js](https://nextjs.org) — React framework
+- [Nosana](https://nosana.com) — Decentralized GPU compute
+
+---
+
+## Author
+
+Built by [@cryptkayo](https://github.com/cryptkayo) for the Nosana Builders Challenge — Agent 102.
+
+---
+
+*Deployed on Nosana · Built with Mastra · Powered by decentralized AI*
