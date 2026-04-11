@@ -1,6 +1,5 @@
 import {
   CopilotRuntime,
-  ExperimentalEmptyStateMessage,
   copilotRuntimeNextJSAppRouterEndpoint,
 } from "@copilotkit/runtime";
 import { mastra } from "../../../mastra";
@@ -11,7 +10,7 @@ const runtime = new CopilotRuntime({
   agents: {
     cryptoDeskAgent: {
       name: "CryptoDesk",
-      description: "Your personal crypto intelligence agent — research narratives, check your watchlist, draft threads, and get daily briefings.",
+      description: "Your personal crypto intelligence agent - research narratives, check your watchlist, draft threads, and get daily briefings.",
     },
   },
 });

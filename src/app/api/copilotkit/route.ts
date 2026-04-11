@@ -11,10 +11,10 @@ export const POST = async (req: NextRequest) => {
   const { handleRequest } = copilotRuntimeNextJSAppRouterEndpoint({
     runtime,
     serviceAdapter: new OpenAIAdapter({
-      model: "qwen3:0.6b",
+      model: process.env.MODEL_NAME || "qwen3:8b",
       openai: new (require("openai").default)({
-        baseURL: "http://127.0.0.1:11434/v1",
-        apiKey: "ollama",
+        baseURL: process.env.OPENAI_API_URL || "https://3yt39qx97wc9hqwwmylrphi4jsxrngjzxnjakkybnxbw.node.k8s.prd.nos.ci/v1",
+        apiKey: process.env.OPENAI_API_KEY || "nosana",
       }),
     }),
     endpoint: "/api/copilotkit",
