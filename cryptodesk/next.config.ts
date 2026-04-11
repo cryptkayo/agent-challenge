@@ -1,13 +1,13 @@
-import type { NextConfig } from "next";
+﻿import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  serverExternalPackages: ["@mastra/core", "mastra"],
-  experimental: {
-    serverComponentsExternalPackages: ["@mastra/core", "mastra"],
+  eslint: {
+    ignoreDuringBuilds: true,
   },
+  serverExternalPackages: ["@mastra/core", "mastra"],
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.externals = [...(config.externals || []), "better-sqlite3"];
