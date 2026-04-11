@@ -75,7 +75,7 @@ function QuickAction({ label }: { label: string }) {
   const { appendMessage } = useCopilotChat();
 
   const handleClick = () => {
-    appendMessage({ role: "user", content: label });
+    appendMessage({ content: label });
   };
 
   return (
