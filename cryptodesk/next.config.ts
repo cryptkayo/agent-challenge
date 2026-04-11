@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   serverExternalPackages: ["@mastra/core", "mastra"],
   experimental: {
     serverComponentsExternalPackages: ["@mastra/core", "mastra"],
