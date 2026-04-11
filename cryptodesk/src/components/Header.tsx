@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 interface HeaderProps {
   time: string;
@@ -13,9 +13,9 @@ export default function Header({ time, nosanaStatus }: HeaderProps) {
   }[nosanaStatus];
 
   const statusLabel = {
-    online: "NOSANA · LIVE",
-    connecting: "NOSANA · CONNECTING",
-    offline: "NOSANA · OFFLINE",
+    online: "NOSANA Â· LIVE",
+    connecting: "NOSANA Â· CONNECTING",
+    offline: "NOSANA Â· OFFLINE",
   }[nosanaStatus];
 
   return (
@@ -66,3 +66,4 @@ export default function Header({ time, nosanaStatus }: HeaderProps) {
     </header>
   );
 }
+

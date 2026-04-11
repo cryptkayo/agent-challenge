@@ -84,3 +84,4 @@ function QuickAction({ label }: { label: string }) {
     </button>
   );
 }
+

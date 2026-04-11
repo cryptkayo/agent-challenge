@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 
@@ -18,11 +18,11 @@ const typeColor = {
 };
 
 const typeIcon = {
-  research: "◈",
-  watchlist: "◉",
-  thread: "◆",
-  brief: "◇",
-  reminder: "◎",
+  research: "â—ˆ",
+  watchlist: "â—‰",
+  thread: "â—†",
+  brief: "â—‡",
+  reminder: "â—Ž",
 };
 
 const INITIAL_ACTIVITY: ActivityItem[] = [
@@ -120,3 +120,4 @@ export default function ActivityPanel() {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { useCopilotChat } from "@copilotkit/react-core";
@@ -34,9 +34,9 @@ export default function WatchlistPanel() {
   };
 
   const sentimentIcon = {
-    bullish: "↑",
-    bearish: "↓",
-    neutral: "—",
+    bullish: "â†‘",
+    bearish: "â†“",
+    neutral: "â€”",
   };
 
   const sentimentColor = {
@@ -82,7 +82,7 @@ export default function WatchlistPanel() {
                   className="mono text-xs opacity-0 group-hover:opacity-100 transition-opacity text-[var(--text-dim)]"
                   style={{ fontSize: "10px" }}
                 >
-                  check →
+                  check â†’
                 </span>
                 <span
                   className="mono text-sm font-bold"
@@ -90,7 +90,7 @@ export default function WatchlistPanel() {
                     color: item.sentiment ? sentimentColor[item.sentiment] : "var(--text-dim)",
                   }}
                 >
-                  {item.sentiment ? sentimentIcon[item.sentiment] : "—"}
+                  {item.sentiment ? sentimentIcon[item.sentiment] : "â€”"}
                 </span>
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function WatchlistPanel() {
 
           {watchlist.length === 0 && (
             <div className="flex items-center justify-center h-16">
-              <span className="mono text-xs text-[var(--text-dim)]">empty — add assets below</span>
+              <span className="mono text-xs text-[var(--text-dim)]">empty â€” add assets below</span>
             </div>
           )}
         </div>
@@ -141,7 +141,7 @@ export default function WatchlistPanel() {
                 className="mono text-xs mt-1"
                 style={{ color: "var(--accent-orange)", fontSize: "10px" }}
               >
-                ⏰ {r.dueDate}
+                â° {r.dueDate}
               </div>
             </div>
           ))}
@@ -156,3 +156,4 @@ export default function WatchlistPanel() {
     </div>
   );
 }
+
