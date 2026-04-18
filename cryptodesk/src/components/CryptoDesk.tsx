@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { useCoAgent, useCopilotChat } from "@copilotkit/react-core";
@@ -52,10 +52,10 @@ export default function CryptoDesk() {
           <div className="flex-1 overflow-hidden cryptodesk-chat">
             <CopilotChat
               className="h-full"
-              instructions="You are CryptoDesk. Be concise, crypto-native, and always end with a ðŸ’¡ Action."
+              instructions="You are CryptoDesk. Be concise, crypto-native, and always end with a 💡 Action."
               labels={{
                 title: "",
-                initial: `**GM. CryptoDesk is live on Nosana.**\n\nI'm your personal crypto intelligence agent. Here's what I can do:\n\nâ€¢ \`brief me\` â€” Morning briefing: narratives + watchlist + reminders\nâ€¢ \`research [topic]\` â€” Deep dive any crypto narrative\nâ€¢ \`check watchlist\` â€” What's moving in your bags\nâ€¢ \`draft thread about [topic]\` â€” Twitter thread in your voice\nâ€¢ \`add [token] to watchlist\` â€” Track something new\nâ€¢ \`remind me to [task] on [date]\` â€” Save important dates\n\nWhat do you need?`,
+                initial: `**GM. CryptoDesk is live on Nosana.**\n\nI'm your personal crypto intelligence agent. Here's what I can do:\n\n• \`brief me\` — Morning briefing: narratives + watchlist + reminders\n• \`research [topic]\` — Deep dive any crypto narrative\n• \`check watchlist\` — What's moving in your bags\n• \`draft thread about [topic]\` — Twitter thread in your voice\n• \`add [token] to watchlist\` — Track something new\n• \`remind me to [task] on [date]\` — Save important dates\n\nWhat do you need?`,
                 placeholder: "research solana narrative / brief me / add ETH to watchlist ...",
               }}
             />
@@ -75,7 +75,7 @@ function QuickAction({ label }: { label: string }) {
   const { appendMessage } = useCopilotChat();
 
   const handleClick = () => {
-    appendMessage(label as any);
+    appendMessage({ role: "user", content: label });
   };
 
   return (
@@ -84,4 +84,3 @@ function QuickAction({ label }: { label: string }) {
     </button>
   );
 }
-
