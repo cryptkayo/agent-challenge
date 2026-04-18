@@ -14,7 +14,13 @@ export const POST = async (req: NextRequest) => {
     }),
   });
 
-  const runtime = new CopilotRuntime();
+  const runtime = new CopilotRuntime({
+    remoteEndpoints: [
+      {
+        url: process.env.COPILOTKIT_RUNTIME_URL || "http://localhost:4111/api/copilotkit",
+      },
+    ],
+  });
 
   const { handleRequest } = copilotRuntimeNextJSAppRouterEndpoint({
     runtime,
